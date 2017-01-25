@@ -10,7 +10,7 @@ The application has got a simple registration and login form, user panel with li
 
 Application runs at:
 --------------
-http://localhost:4200/
+ [http://localhost:4200/](http://localhost:4200/)
 
 # For testing purposes:
 Admin panel:
@@ -22,5 +22,13 @@ User panel:
 --------------
 - Username: user
 - Password: 321
+
+
+Tested with Ubuntu 16.04.
+
+TODO:
+--------------
+- Fix bug with disappearing results of search after user delete.
+
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.26.
