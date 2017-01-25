@@ -8,6 +8,10 @@ The application has got a simple registration and login form, user panel with li
 - $ npm install
 - $ ng serve
 
+Application runs at:
+--------------
+http://localhost:4200/
+
 # For testing purposes:
 Admin panel:
 --------------
