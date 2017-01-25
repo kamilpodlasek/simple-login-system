@@ -1,0 +1,49 @@
+<nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+      </button>
+      <a [routerLink]="['']" class="navbar-brand">SimpleLoginSystem</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li *ngIf="!isLogged"><a [routerLink]="['']" routerLinkActive="active">Home</a></li>
+        <li *ngIf="!isLogged"><a [routerLink]="['register']">Register</a></li>
+        <li *ngIf="isLogged"><a (click)="this.userService.logout()" [routerLink]="['']">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron">
+    <main>
+      <div *ngIf="error" class="alert alert-danger text-center" role="alert">{{error}}</div>
+      <router-outlet></router-outlet>
+    </main>
+</div>
+
+<div *ngIf="!isLogged" class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">For testing purposes:</h2>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <h4>Admin panel:</h4>
+        <div class="alert alert-info" role="alert">
+          <p><strong class="credentials">Username:</strong> <span class="label label-primary">admin</span></p>
+          <p><strong class="credentials">Password:</strong> <span class="label label-primary">123</span></p>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <h4>User panel:</h4>
+        <div class="alert alert-info" role="alert">
+          <p><strong class="credentials">Username:</strong> <span class="label label-primary">user</span></p>
+          <p><strong class="credentials">Password:</strong> <span class="label label-primary">321</span></p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

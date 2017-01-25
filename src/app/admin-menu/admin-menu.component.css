@@ -1,0 +1,24 @@
+.editBox {
+  position: absolute;
+  right: 100px;
+  width: 200px;
+  height: 181px;
+  padding: 8px;
+  background-color: rgba(64, 64, 64, 0.9);
+  border-radius: 8px;
+  z-index: 100;
+}
+
+#input {
+  margin-bottom: 2px;
+}
+
+#inputAdmin {
+  margin-bottom: 0px;
+  color: #fff;
+  font-size: 1em;
+}
+
+.btn {
+  margin-top: 0px;
+}

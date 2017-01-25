@@ -1,0 +1,52 @@
+<div>
+  <div *ngIf="error" class="alert alert-danger text-center" role="alert">{{error}}</div>
+  <table class="table">
+    <thead class="thead">
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th *ngIf="this.admin">E-mail</th>
+        <th *ngIf="this.admin">Password</th>
+        <th *ngIf="this.admin">Rights</th>
+        <th *ngIf="this.admin">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <th scope="row">{{user.id}}</th>
+        <td>{{user.username}}</td>
+        <td *ngIf="this.admin">{{user.email}}</td>
+        <td *ngIf="this.admin">{{user.password}}</td>
+        <td *ngIf="this.admin">{{user.rights}}</td>
+        <td *ngIf="this.admin"><admin-menu *ngIf="this.admin" [loggedUser]="this.loggedUser" [user]="user" (edit)="editUser($event, 'users')" (delete)="deleteUser($event)"></admin-menu></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search"></span></span>
+    <input #searchBox (keyup)="searchUsers(searchBox.value)" type="text" class="form-control" placeholder="Search" aria-describedby="basic-addon1" autofocus>
+  </div>
+  <table class="table">
+    <thead *ngIf="searchBox.value" class="thead">
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th *ngIf="this.admin">E-mail</th>
+        <th *ngIf="this.admin">Password</th>
+        <th *ngIf="this.admin">Rights</th>
+        <th *ngIf="this.admin">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of usersObs | async">
+        <th scope="row">{{user.id}}</th>
+        <td>{{user.username}}</td>
+        <td *ngIf="this.admin">{{user.email}}</td>
+        <td *ngIf="this.admin">{{user.password}}</td>
+        <td *ngIf="this.admin">{{user.rights}}</td>
+        <td *ngIf="this.admin"><admin-menu *ngIf="this.admin" [loggedUser]="this.loggedUser" [user]="user" (edit)="editUser($event, 'search')" (delete)="deleteUser($event)"></admin-menu></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

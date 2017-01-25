@@ -1,0 +1,16 @@
+<form *ngIf="!isLogged" class="form-signin">
+  <h3 class="form-signin-heading">Login:</h3>
+  <div *ngIf="success" class="alert alert-success text-center" role="alert">{{success}}</div>
+  <label for="username" class="sr-only">Username</label>
+  <input [(ngModel)]="user.username" name="username" type="username" id="username" class="form-control" placeholder="Username" required autofocus>
+  <label for="password" class="sr-only">Password</label>
+  <input [(ngModel)]="user.password" name="password" type="password" id="password" class="form-control" placeholder="Password" required>
+  <div *ngIf="error" class="alert alert-danger text-center" role="alert">{{error}}</div>
+  <button (click)="login()" class="btn btn-lg btn-primary btn-block">Sign in</button>
+  <button [routerLink]="['register']" class="btn btn-lg btn-default btn-block">Register</button>
+</form>
+
+<div *ngIf="isLogged" class="container">
+  <h2>SimpleLoginSystem</h2>
+  <button [routerLink]="['panel']" class="btn btn-lg btn-primary btn-block">Panel</button>
+</div>
