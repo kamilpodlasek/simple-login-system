@@ -26,9 +26,4 @@ User panel:
 
 Tested with Ubuntu 16.04.
 
-TODO:
---------------
-- Fix bug with disappearing results of search after user delete.
-
-
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.26.
