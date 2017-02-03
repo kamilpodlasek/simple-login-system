@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { PanelComponent } from './panel/panel.component';
 import { UsersListComponent } from './users-list/users-list.component';
+import { UsersFilterPipe } from './users-list/users-filter.pipe';
 import { LoginComponent } from './login/login.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 
@@ -30,6 +31,7 @@ const ROUTES: Routes = [
     RegisterComponent,
     PanelComponent,
     UsersListComponent,
+    UsersFilterPipe,
     LoginComponent,
     AdminMenuComponent
   ],

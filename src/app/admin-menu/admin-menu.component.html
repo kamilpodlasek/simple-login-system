@@ -1,5 +1,5 @@
 <a (click)="showEditBox()" class="btn btn-xs btn-warning"><span class="glyphicon glyphicon-edit"></span></a>
-<a *ngIf="this.loggedUser.id !== this.user.id" (click)="deleteUser()" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+<a *ngIf="this.loggedUserId !== this.user.id" (click)="deleteUser()" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
 
 <div *ngIf="editBoxVisible" id="editBox" class="editBox text-center">
   <form (ngSubmit)="editUser()">
@@ -8,7 +8,7 @@
     <input [(ngModel)]="this.user.email" name="email" type="email" id="input" class="form-control" placeholder="E-mail" required>
     <p id="inputAdmin">
       <label class="form-check-label">
-        <input *ngIf="this.loggedUser.id !== this.user.id" [(ngModel)]="this.user.rights" name="rights" class="form-check-input" type="checkbox">
+        <input *ngIf="this.loggedUserId !== this.user.id" [(ngModel)]="this.user.rights" name="rights" class="form-check-input" type="checkbox">
         Admin
       </label>
     </p>

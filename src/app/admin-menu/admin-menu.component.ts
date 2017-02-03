@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ElementRef } from '@angular/core';
 
 import { User } from '../user';
 import { UserService } from '../user.service';
@@ -11,23 +11,18 @@ import { UserService } from '../user.service';
     '(document:click)': 'onClick($event)'
   }
 })
-export class AdminMenuComponent implements OnInit {
+export class AdminMenuComponent {
   public error: string;
   @Input() user: User;
-  @Input() loggedUser: User;
-  editBoxVisible: boolean;
+  @Input() loggedUserId: number;
+  editBoxVisible: boolean = false;
 
-  @Output() delete = new EventEmitter();
-  @Output() edit = new EventEmitter();
+  @Output() updateUsers = new EventEmitter();
 
   constructor(
     private userService: UserService,
     private _eref: ElementRef
   ) { }
-
-  ngOnInit() {
-    this.editBoxVisible = false;
-  }
 
   onClick(event): void {
    if(!this._eref.nativeElement.contains(event.target)) {
@@ -42,7 +37,7 @@ export class AdminMenuComponent implements OnInit {
   editUser(): void {
     this.userService.updateUser(this.user)
       .then(() => {
-        this.edit.next(this.user);
+        this.updateUsers.emit();
         this.editBoxVisible = false;
       })
       .catch(error => this.error = error);
@@ -51,7 +46,7 @@ export class AdminMenuComponent implements OnInit {
   deleteUser(): void {
     this.userService.deleteUser(this.user)
       .then(() => {
-        this.delete.next(this.user);
+        this.updateUsers.emit();
       })
       .catch(error => this.error = error);
   }
