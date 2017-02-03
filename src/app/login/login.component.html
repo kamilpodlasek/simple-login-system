@@ -7,7 +7,7 @@
   <input [(ngModel)]="user.password" name="password" type="password" id="password" class="form-control" placeholder="Password" required>
   <div *ngIf="error" class="alert alert-danger text-center" role="alert">{{error}}</div>
   <button (click)="login()" class="btn btn-lg btn-primary btn-block">Sign in</button>
-  <button [routerLink]="['register']" class="btn btn-lg btn-default btn-block">Register</button>
+  <button type="button" [routerLink]="['register']" class="btn btn-lg btn-default btn-block">Register</button>
 </form>
 
 <div *ngIf="isLogged" class="container">

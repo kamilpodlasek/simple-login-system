@@ -6,5 +6,5 @@
   <input [(ngModel)]="user.email" name="email" type="email" class="form-control" placeholder="E-mail" required>
   <div *ngIf="error" class="alert alert-danger text-center" role="alert">{{error}}</div>
   <button type="submit" class="btn btn-lg btn-primary btn-block">Register</button>
-  <button [routerLink]="['']" class="btn btn-lg btn-default btn-block">Go back</button>
+  <button type="button" [routerLink]="['']" class="btn btn-lg btn-default btn-block">Go back</button>
 </form>
