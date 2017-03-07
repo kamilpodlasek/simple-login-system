@@ -1,6 +1,6 @@
 import { SimpleLoginSystemPage } from './app.po';
 
-describe('simple-login-system App', function() {
+describe('simple-login-system App', () => {
   let page: SimpleLoginSystemPage;
 
   beforeEach(() => {
