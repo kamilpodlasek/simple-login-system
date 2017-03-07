@@ -13,7 +13,6 @@ ng serve
 ```
 
 ## Application runs at:
---------------
 > [http://localhost:4200/](http://localhost:4200/)
 
 ## For testing purposes:
